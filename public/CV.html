@@ -3,20 +3,40 @@
 <head>
 <title>Ahmad Othman Jamous</title>
 <style>
-/* Improved styling for a CV-like layout */
+/* Enhanced styling with animations */
 body {
   font-family: sans-serif;
   margin: 0;
   padding: 20px;
+  background-color: #f4f4f4;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Initially hidden for fade-in effect */
+  animation: fadeIn 1s ease-in-out forwards; /* Fade-in animation */
 }
 
-h1, h2 {
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1 {
   text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #555;
+  margin-bottom: 30px;
 }
 
 .section {
@@ -24,17 +44,32 @@ h1, h2 {
 }
 
 .section h3 {
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #007bff;
   padding-bottom: 5px;
   margin-bottom: 15px;
+  color: #333;
 }
 
 .work-experience li {
   margin-bottom: 20px;
+  opacity: 0; /* Initially hidden for slide-in effect */
+  transform: translateY(20px); /* Initial offset for slide-in */
+  animation: slideIn 0.5s ease-in-out forwards; /* Slide-in animation */
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .work-experience h4 {
   margin-bottom: 5px;
+  color: #007bff;
+}
+
+.work-experience ul ul {
+  list-style: disc;
+  margin-left: 20px;
 }
 
 .contact-info {
@@ -73,6 +108,7 @@ h1, h2 {
       <li>Database Management (MySQL/MariaDB)</li>
       <li>Troubleshooting and Problem-Solving</li>
       <li>Customer Support and Training</li>
+      <li>IT Consulting and Project Management</li>
     </ul>
   </div>
 
@@ -86,43 +122,69 @@ h1, h2 {
           <li>Troubleshoot and resolve POS and software issues.</li>
           <li>Document software defects and escalate to management.</li>
           <li>Train and mentor new team members.</li>
+          <li>Improve self-help documentation and identify areas for improvement.</li>
         </ul>
       </li>
       <li>
         <h4>DevOps Engineer | Bloovo (Sept 2022 - Nov 2022)</h4>
         <ul>
           <li>Enhanced development environments and managed CI/CD workflows.</li>
-          <li>Utilized tools like Lens Kubernetes, Terraform, Helm, etc.</li>
+          <li>Utilized tools like Lens Kubernetes, Terraform, Helm, Traefik, Docker, ArgoCD, Kustomize, kubectl, Grafana, and GitHub.</li>
           <li>Delivered services to clients in UAE, KSA, and Kuwait.</li>
         </ul>
       </li>
       <li>
         <h4>Senior System Administrator | Bank of Palestine (July 2022 - Sept 2022)</h4>
         <ul>
-          <li>Contributed to datacenter maintenance and software application security.</li>
+          <li>Collaborated within a team to contribute to datacenter maintenance, focusing on ensuring the security of all software applications.</li>
         </ul>
       </li>
-      </ul>
-  </div>
-
-  <div class="section">
-    <h3>Certifications</h3>
-    <ul>
-      <li>Microsoft Certified Solutions Expert (MCSE)</li>
-      <li>Red Hat Certified System Administrator (RHCSA)</li>
-      <li>Dell SonicWALL: Network Security Basic Administration</li>
-    </ul>
-  </div>
-
-  <div class="contact-info">
-    <h3>Contact</h3>
-    <p>
-      Email: ahmad.jamous@gmail.com <br>
-      Location: Nablus, Palestinian Territories <br>
-      Mobile: +970599359308
-    </p>
-  </div>
-
-</div>
-</body>
-</html>
+      <li>
+        <h4>Senior Infrastructure Engineer | KIA Motors (Sept 2020 - Nov 2021)</h4>
+        <ul>
+          <li>Constructed the Datacenter and configured new servers on the ESXi machine within vCenter Server.</li>
+          <li>Managed network and FortiGate firewall security policies.</li>
+          <li>Transitioned from legacy cPanel email services to Microsoft Office 365.</li>
+          <li>Integrated APIs with "KIA" Korea into local CRM/ERP servers.</li>
+        </ul>
+      </li>
+      <li>
+        <h4>Senior IT Consultant / DevOps Engineering | AXSOS AG (April 2019 - Sept 2020)</h4>
+        <ul>
+          <li>Linux administration and related ticket handling.</li>
+          <li>Managed security systems (Kaspersky), troubleshooting vulnerabilities, and custom apps.</li>
+          <li>Handled ADS, Domain, DNS, Windows Server, Exchange, IIS, RDS services, and PowerShell scripting.</li>
+          <li>Worked with Linux Bash scripting, Apache, Nginx, Axon Ivy Engine, Citrix NetScaler ADC, and ESXi.</li>
+          <li>Improved development environments with DevOps tools like Jenkins, SonarQube, and Maven.</li>
+        </ul>
+      </li>
+      <li>
+        <h4>IT & Network Specialist | Palestine Red Crescent Society (Jan 2018 - March 2019)</h4>
+        <ul>
+          <li>Administered a network with over 1000 users and 250 computers across 13 branches.</li>
+          <li>Oversaw IT infrastructure, including Cisco switches, routers, wireless access points, and VoIP phones.</li>
+          <li>Managed FortiGate firewall security policies.</li>
+          <li>Handled ADS, Domain, DNS, DHCP, WSUS, File Server, Print Server, Exchange, and IIS.</li>
+          <li>Provided technical support and troubleshooting for end-users.</li>
+          <li>Conducted software and hardware installations, upgrades, and maintenance.</li>
+        </ul>
+      </li>
+      <li>
+        <h4>System & Network Administrator | Arab Center for Agricultural Development (ACAD) (June 2012 - Jan 2018)</h4>
+        <ul>
+          <li>Administered a network spanning 7 branches with over 200 users and 100 computers.</li>
+          <li>Managed Linux-based servers, Windows Server, Exchange, and Active Directory.</li>
+          <li>Handled system and application backups.</li>
+          <li>Oversaw website maintenance and email services.</li>
+          <li>Provided IT support, troubleshooting, and training to staff.</li>
+        </ul>
+      </li>
+      <li>
+        <h4>IT Support Specialist | Palestine Investment Fund (PIF) (June 2010 - June 2012)</h4>
+        <ul>
+          <li>Provided IT support, troubleshooting, and training to staff.</li>
+          <li>Assisted with hardware and software installations, upgrades, and maintenance.</li>
+        </ul>
+      </li>
+      <li>
+        <h4>IT Assistant Manager & Supervisor | United Motor Trade Co. (Oct 2013 - Nov 2014)</h4>
