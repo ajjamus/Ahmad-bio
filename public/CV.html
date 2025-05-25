@@ -9,10 +9,10 @@
 /* General styling improvements for layout, typography, and responsiveness */
 .container {
   font-family: sans-serif;
-  max-width: 800px;
+  max-width: 1120px; /* A4 width: 210mm ≈ 1120px at 96dpi */
   margin: 0 auto;
   background-color: #fff;
-  padding: 30px 20px;
+  padding: 40px 40px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background: #fff;
@@ -74,6 +74,28 @@ footer.text-center {
   text-align: center;
   font-size: 0.95em;
   color: #333;
+}
+
+/* Print styles for A4 */
+@media print {
+  body, html {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    background: #fff !important;
+  }
+  .container {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 20mm 15mm;
+    margin: 0;
+  }
+  footer, .footer, .footer-container {
+    page-break-after: avoid;
+  }
 }
 </style>
 </head>
