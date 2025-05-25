@@ -4,9 +4,9 @@
 <title>Ahmad Othman Jamous</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CV of Ahmad Othman Jamous, Senior System Administrator and DevOps Engineer.">
+<meta name="description" content="CV of Ahmad Othman Jamous, Senior System Administrator and DevOps Engineer, showcasing certifications, work experience, achievements, and technical skills.">
 <style>
-/* Further refined styling */
+/* General styling improvements for layout, typography, and responsiveness */
 body {
   font-family: sans-serif;
   margin: 0;
@@ -56,7 +56,7 @@ h2 {
 }
 
 .work-experience ul ul {
-  list-style: disc;
+  list-style: circle;
   margin-left: 20px;
 }
 
@@ -83,7 +83,7 @@ multitasking abilities and experienced in DEVOPS methodologies and tools
   </p>
   </div>
 
-  <div class="section skills">
+  <div class="section skills-section">
       <h3>Skills & Expertise</h3>
       <ul class="skills">
         <li><strong>System Administration:</strong> Linux and Windows Server Administration, Virtualization (ESXi, vCenter)</li>
@@ -100,11 +100,6 @@ multitasking abilities and experienced in DEVOPS methodologies and tools
     <ul>
       <li>Implemented CI/CD pipelines, reducing deployment time by 50% and improving software delivery efficiency.</li>
       <li>Led team projects on cloud migration, successfully transitioning 10+ applications to AWS and Azure platforms.</li>
-    </ul>
-  </div>
-  <div class="section achievements">
-    <h3>Achievements</h3>
-    <ul class="achievements-list">
       <li>Managed over 100+ Linux and Windows servers, ensuring 99.9% uptime and optimal performance.</li>
     </ul>
   </div>
@@ -205,8 +200,11 @@ multitasking abilities and experienced in DEVOPS methodologies and tools
   </div>
 
 </div>
-<footer class="footer-container text-center">
-  <p>© 2025 | <a href="https://jamoustech.com/" title="JamousTech LLC">JamousTech LLC</a></p>
+<footer class="footer text-center">
+  <p>© <span id="currentYear"></span> | <a href="https://jamoustech.com/" title="JamousTech LLC">JamousTech LLC</a></p>
 </footer>
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
