@@ -49,7 +49,7 @@
   </nav>
 </header>
 <script>
-  // Fetch navigation links from index.html and inject into navbar
+document.addEventListener("DOMContentLoaded", function () {
   fetch('./index.html')
     .then(response => response.text())
     .then(html => {
@@ -67,6 +67,7 @@
         });
       }
     });
+});
 </script>
 
 <div class="section-container">
