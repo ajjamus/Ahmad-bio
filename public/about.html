@@ -43,25 +43,24 @@
   </nav>
 </header>
 <script>
-  // Dynamic navigation links (copied from index.html)
-  const navLinks = [
-    { href: "./index.html", label: "01 : Home" },
-    { href: "./works.html", label: "02 : Works" },
-    { href: "./about.html", label: "03 : About me" },
-    { href: "./contact.html", label: "04 : Contact" },
-    { href: "./CV.html", label: "05 : CV" }
-  ];
-  const currentPage = location.pathname.split('/').pop();
-  const navUl = document.getElementById('dynamic-nav');
-  navLinks.forEach(link => {
-    const li = document.createElement('li');
-    if (link.href.endsWith(currentPage)) li.className = 'active';
-    const a = document.createElement('a');
-    a.href = link.href;
-    a.textContent = link.label;
-    li.appendChild(a);
-    navUl.appendChild(li);
-  });
+  // Fetch navigation links from index.html and inject into navbar
+  fetch('./index.html')
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const navMenuSrc = doc.getElementById('dynamic-nav');
+      const navMenuDest = document.getElementById('dynamic-nav');
+      if (navMenuSrc && navMenuDest) {
+        navMenuDest.innerHTML = navMenuSrc.innerHTML;
+        // Highlight active link
+        Array.from(navMenuDest.getElementsByTagName('a')).forEach(a => {
+          if (window.location.pathname.endsWith(a.getAttribute('href').replace('./', ''))) {
+            a.parentElement.classList.add('active');
+          }
+        });
+      }
+    });
 </script>
 
 <div class="section-container">
