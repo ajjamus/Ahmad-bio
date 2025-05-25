@@ -28,26 +28,41 @@
 <header>
   <nav class="navbar  navbar-fixed-top navbar-default">
     <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-          <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./works.html" title="">02 : Works</a></li>
-          <li><a href="./about.html" title="">03 : About me</a></li>
-          <li><a href="./contact.html" title="">04 : Contact</a></li>
+        <ul class="nav navbar-nav" id="dynamic-nav">
+          <!-- Navigation links will be injected here -->
         </ul>
-
-
-      </div> 
+      </div>
     </div>
   </nav>
 </header>
+<script>
+  // Dynamic navigation links (copied from index.html)
+  const navLinks = [
+    { href: "./index.html", label: "01 : Home" },
+    { href: "./works.html", label: "02 : Works" },
+    { href: "./about.html", label: "03 : About me" },
+    { href: "./contact.html", label: "04 : Contact" },
+    { href: "./CV.html", label: "05 : CV" }
+  ];
+  const currentPage = location.pathname.split('/').pop();
+  const navUl = document.getElementById('dynamic-nav');
+  navLinks.forEach(link => {
+    const li = document.createElement('li');
+    if (link.href.endsWith(currentPage)) li.className = 'active';
+    const a = document.createElement('a');
+    a.href = link.href;
+    a.textContent = link.label;
+    li.appendChild(a);
+    navUl.appendChild(li);
+  });
+</script>
 
 <div class="section-container">
     <div class="container">
