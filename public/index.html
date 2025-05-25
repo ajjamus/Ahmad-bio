@@ -63,6 +63,28 @@
     navUl.appendChild(li);
   });
 </script>
+<!-- Place this after your <header> ... </header> -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  fetch('./index.html')
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const navMenuSrc = doc.getElementById('dynamic-nav');
+      const navMenuDest = document.getElementById('dynamic-nav');
+      if (navMenuSrc && navMenuDest) {
+        navMenuDest.innerHTML = navMenuSrc.innerHTML;
+        // Highlight active link
+        Array.from(navMenuDest.getElementsByTagName('a')).forEach(a => {
+          if (window.location.pathname.endsWith(a.getAttribute('href').replace('./', ''))) {
+            a.parentElement.classList.add('active');
+          }
+        });
+      }
+    });
+});
+</script>
 <!-- Add your site or app content here -->
   <div class="hero-full-container background-image-container white-text-container" style="background-image: url('./assets/images/Back.jpg')">
     <div class="container">
