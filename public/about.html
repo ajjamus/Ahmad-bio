@@ -42,33 +42,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav" id="dynamic-nav">
-          <!-- Navigation links will be injected here -->
+          <li><a href="./index.html">01 : Home</a></li>
+          <li><a href="./works.html">02 : Works</a></li>
+          <li class="active"><a href="./about.html">03 : About me</a></li>
+          <li><a href="./contact.html">04 : Contact</a></li>
+          <li><a href="./CV.html">05 : CV</a></li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  fetch('./index.html')
-    .then(response => response.text())
-    .then(html => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const navMenuSrc = doc.getElementById('dynamic-nav');
-      const navMenuDest = document.getElementById('dynamic-nav');
-      if (navMenuSrc && navMenuDest) {
-        navMenuDest.innerHTML = navMenuSrc.innerHTML;
-        // Highlight active link
-        Array.from(navMenuDest.getElementsByTagName('a')).forEach(a => {
-          if (window.location.pathname.endsWith(a.getAttribute('href').replace('./', ''))) {
-            a.parentElement.classList.add('active');
-          }
-        });
-      }
-    });
-});
-</script>
 
 <div class="section-container">
     <div class="container">
