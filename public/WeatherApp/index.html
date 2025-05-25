@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -16,12 +15,11 @@
       Weather App
     </header>
     <section class="input-part">
-      <p class="
-info-txt"></p>
+      <p class="info-txt"></p>
       <div class="content">
         <input type="text" spellcheck="false" placeholder="Enter city name" required>
         <div class="separator"></div>
-        <button>Get Device Location</button>
+        <button id="get-location-btn">Get Device Location</button>
       </div>
     </section>
     <section class="weather-part">
@@ -58,5 +56,14 @@ info-txt"></p>
     </section>
   </div>
   <script src="script.js"></script>
+  <script>
+    // Auto check location on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      const getLocationBtn = document.getElementById('get-location-btn');
+      if (getLocationBtn) {
+        getLocationBtn.click();
+      }
+    });
+  </script>
 </body>
 </html>
