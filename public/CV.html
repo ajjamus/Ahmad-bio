@@ -7,20 +7,21 @@
 <meta name="description" content="CV of Ahmad Othman Jamous, Senior System Administrator and DevOps Engineer, showcasing certifications, work experience, achievements, and technical skills.">
 <style>
 /* General styling improvements for layout, typography, and responsiveness */
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
 .container {
+  font-family: sans-serif;
   max-width: 800px;
   margin: 0 auto;
   background-color: #fff;
-  padding: 30px;
+  padding: 30px 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
 }
 
 h1 {
@@ -65,7 +66,15 @@ h2 {
   margin-top: 40px;
 }
 
-/* Add more styles as needed */
+footer.text-center {
+  margin-top: 40px;
+  padding: 15px 0;
+  background: #f8f9fa;
+  border-top: 2px solid #007bff;
+  text-align: center;
+  font-size: 0.95em;
+  color: #333;
+}
 </style>
 </head>
 <body>
@@ -76,25 +85,30 @@ h2 {
 
   <div class="section">
     <h3>Summary</h3>
-  <p>
-    Experienced Senior System Administrator with extensive expertise in Linux and Microsoft Windows Servers. Proficient in application and system
-backups, Exchange, and Active Directory. Demonstrated success in hardware/software roll-outs, staff training, and project management. Strong
-multitasking abilities and experienced in DEVOPS methodologies and tools
-  </p>
+    <p>
+      Experienced Senior System Administrator with extensive expertise in Linux and Microsoft Windows Servers. Proficient in application and system
+      backups, Exchange, and Active Directory. Demonstrated success in hardware/software roll-outs, staff training, and project management. Strong
+      multitasking abilities and experienced in DEVOPS methodologies and tools
+    </p>
   </div>
 
   <div class="section skills-section">
-      <h3>Skills & Expertise</h3>
-      <ul class="skills">
-        <li><strong>System Administration:</strong> Linux and Windows Server Administration, Virtualization (ESXi, vCenter)</li>
-        <li><strong>DevOps & Automation:</strong> Jenkins, SonarQube, Maven, CI/CD pipelines, Scripting (PowerShell, Bash)</li>
-        <li><strong>Cloud & Infrastructure:</strong> AWS, Azure, Cloud Migration</li>
-        <li><strong>Networking & Security:</strong> FortiGate, Networking, Firewall Management</li>
-        <li><strong>Database Management:</strong> MySQL/MariaDB</li>
-        <li><strong>Soft Skills:</strong> Troubleshooting, Problem-Solving, Customer Support, Training, IT Consulting, Project Management</li>
-      </ul>
-    </div>
+    <h3>Skills & Expertise</h3>
+    <ul class="skills">
+      <li><strong>System Administration:</strong> Linux and Windows Server Administration, Virtualization (ESXi, vCenter)</li>
+      <li><strong>DevOps & Automation:</strong> Jenkins, SonarQube, Maven, CI/CD pipelines, Scripting (PowerShell, Bash)</li>
+      <li><strong>Cloud & Infrastructure:</strong> AWS, Azure, Cloud Migration</li>
+      <li><strong>Networking & Security:</strong> FortiGate, Networking, Firewall Management</li>
+      <li><strong>Database Management:</strong> MySQL/MariaDB</li>
+      <li><strong>Soft Skills:</strong> Troubleshooting, Problem-Solving, Customer Support, Training, IT Consulting, Project Management</li>
+      <li>Managed over 100+ Linux and Windows servers, ensuring 99.9% uptime and optimal performance.</li>
+      <li>Implemented CI/CD pipelines, reducing deployment time by 50% and improving software delivery efficiency.</li>
+      <li>Automated routine tasks using scripting languages, saving an estimated 200 hours annually.</li>
+      <li>Led team projects on cloud migration, successfully transitioning 10+ applications to AWS and Azure platforms.</li>
+      <li>Provided local consultations to 20+ clients, enhancing IT infrastructure and cybersecurity measures.</li>
+    </ul>
   </div>
+
   <div class="section achievements">
     <h3>Achievements</h3>
     <ul>
@@ -199,10 +213,10 @@ multitasking abilities and experienced in DEVOPS methodologies and tools
     </address>
   </div>
 
+  <footer class="text-center">
+    <p>© <span id="currentYear"></span> | <a href="https://jamoustech.com/" title="JamousTech LLC">JamousTech LLC</a></p>
+  </footer>
 </div>
-<footer class="footer text-center">
-  <p>© <span id="currentYear"></span> | <a href="https://jamoustech.com/" title="JamousTech LLC">JamousTech LLC</a></p>
-</footer>
 <script>
   document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
