@@ -124,10 +124,10 @@
                             <span class="text-xs font-medium text-slate-500">Nov 2025 – Present</span>
                         </div>
                         <ul class="list-disc list-outside text-gray-600 space-y-1.5 ml-4 text-sm print-text-sm">
-                            <li><strong>AI-Assisted Engineering:</strong> Daily utilization of AI co-pilots and custom LLM workflows to accelerate pipeline creation, draft infrastructure code, and troubleshoot complex core errors at scale.</li>
+                            <li><strong>AI-Assisted Engineering:</strong> Leverage AI co-pilots and custom LLM workflows to accelerate CI/CD pipeline creation, provision infrastructure-as-code (IaC), and resolve complex core errors at scale.</li>
                             <li><strong>Automated Workflows:</strong> Engineered event-driven pipeline routines utilizing <strong>n8n and webhooks</strong> to streamline cross-team collaboration and reduce manual execution overhead.</li>
-                            <li><strong>The Great Secret Cleanup:</strong> Spearheaded a security initiative to audit and rotate hardcoded secrets across <strong>132 product repositories</strong>. Migrated environments to the <strong>Kubernetes Secrets Store CSI Driver</strong>.</li>
-                            <li><strong>GitOps & Smooth Deployments:</strong> Maintain robust orchestrations utilizing <strong>Kubernetes, ArgoCD, and Helm</strong>; introduced <strong>Blue/Green deployment patterns via Argo Rollouts</strong> for zero downtime.</li>
+                            <li><strong>Infrastructure Security Remediation:</strong> Spearheaded a security initiative to audit and rotate hardcoded secrets across <strong>132 product repositories</strong>. Migrated environments to the <strong>Kubernetes Secrets Store CSI Driver</strong>.</li>
+                            <li><strong>GitOps & Deployment Orchestration:</strong> Maintain robust orchestrations utilizing <strong>Kubernetes, ArgoCD, and Helm</strong>; helped deploy and validate <strong>Blue/Green deployment patterns via Argo Rollouts</strong> to ensure zero downtime.</li>
                         </ul>
                     </div>
 
@@ -512,9 +512,21 @@
             const loadingId = showLoading();
 
             try {
+                // To activate the chatbot on a live hosted site, you will need to add a Google Gemini API key here.
                 const apiKey = ""; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
                 
+                if(!apiKey) {
+                   setTimeout(() => {
+                        removeElement(loadingId);
+                        appendMessage('ai', 'To enable live AI chatting, please insert a Gemini API key into the source code.');
+                        isGenerating = false;
+                        sendBtn.disabled = false;
+                        sendBtn.classList.remove('opacity-50');
+                   }, 800);
+                   return;
+                }
+
                 const payload = {
                     contents: chatHistory,
                     systemInstruction: { parts: [{ text: systemPrompt }] }
