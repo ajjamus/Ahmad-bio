@@ -1,269 +1,307 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Ahmad Othman Jamous</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CV of Ahmad Othman Jamous, Senior System Administrator and DevOps Engineer, showcasing certifications, work experience, achievements, and technical skills.">
-<style>
-/* General styling improvements for layout, typography, and responsiveness */
-.container {
-  font-family: sans-serif;
-  max-width: 1120px; /* A4 width: 210mm ≈ 1120px at 96dpi */
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 40px 40px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background: #fff;
-}
-
-body {
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-h2 {
-  text-align: center;
-  color: #555;
-  margin-bottom: 30px;
-}
-
-.section {
-  margin-bottom: 30px;
-}
-
-.section h3 {
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.work-experience li {
-  margin-bottom: 20px;
-}
-
-.work-experience h4 {
-  margin-bottom: 5px;
-  color: #007bff;
-}
-
-.work-experience ul ul {
-  list-style: circle;
-  margin-left: 20px;
-}
-
-.contact-info {
-  text-align: center;
-  margin-top: 40px;
-}
-
-footer.text-center {
-  margin-top: 40px;
-  padding: 15px 0;
-  background: #f8f9fa;
-  border-top: 2px solid #007bff;
-  text-align: center;
-  font-size: 0.95em;
-  color: #333;
-}
-
-/* Print styles for A4 */
-@media print {
-  body, html {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    padding: 0;
-    background: #fff !important;
-  }
-  .container {
-    width: 100%;
-    max-width: 100%;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 20mm 15mm;
-    margin: 0;
-  }
-  footer, .footer, .footer-container {
-    page-break-after: avoid;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Jamous - DevOps & Infrastructure Engineer Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .print-break {
+            page-break-inside: avoid;
+        }
+    </style>
 </head>
-<body>
-<div class="container">
+<body class="text-gray-800 antialiased p-4 md:p-8">
 
-  <h1>Ahmad Othman Jamous</h1>
-  <h2>Senior System Administrator / DevOps Engineer</h2>
+    <div class="max-w-5xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden print:shadow-none print:rounded-none">
+        
+        <!-- Header Section -->
+        <header class="bg-slate-900 text-white p-8 md:p-12">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2">Ahmad Jamous</h1>
+            <h2 class="text-xl md:text-2xl text-blue-400 font-medium mb-6">DevOps & Cloud Infrastructure Engineer</h2>
+            
+            <div class="flex flex-wrap gap-4 text-sm text-gray-300">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Nablus, West Bank
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    +970 599359308
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    ahmad.jamous@gmail.com
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://www.linkedin.com/in/ahmad-jamous-82606156/" class="hover:text-blue-400 transition" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+        </header>
 
-  <div class="contact-info">
-    <h3>Contact</h3>
-    <address>
-      Email: <a href="mailto:ahmad.jamous@gmail.com">ahmad.jamous@gmail.com</a><br>
-      Location: Nablus, Palestinian Territories<br>
-      Mobile: <a href="tel:+970599359308">+970599359308</a><br>
-      LinkedIn: 
-      <a href="https://www.linkedin.com/in/ahmad-jamous-82606156/" target="_blank" style="display:inline-flex;align-items:center;">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:18px;height:18px;margin-right:5px;vertical-align:middle;">
-        Ahmad Jamous
-      </a><br>
-      GitHub: 
-      <a href="https://github.com/ajjamus" target="_blank" style="display:inline-flex;align-items:center;">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:18px;height:18px;margin-right:5px;vertical-align:middle;">
-        ajjamus
-      </a>
-    </address>
-  </div>
+        <!-- Main Content Area -->
+        <div class="flex flex-col md:flex-row">
+            
+            <!-- Left Column (Main Content) -->
+            <div class="w-full md:w-2/3 p-8 md:p-12 border-r border-gray-100">
+                
+                <!-- Summary -->
+                <section class="mb-10">
+                    <h3 class="text-sm font-bold text-slate-400 border-b border-gray-200 pb-2 mb-4 uppercase tracking-wider">Professional Profile</h3>
+                    <p class="text-gray-600 leading-relaxed text-justify">
+                        Resourceful <strong>DevOps and Infrastructure Engineer</strong> with over a decade of hands-on technical expertise bridging the gap between stable IT systems and modern cloud-native lifecycles. I specialize in orchestrating robust <strong>Kubernetes</strong> clusters, managing complex cloud resources, and automating secure enterprise infrastructure. I am highly passionate about integrating advanced <strong>AI tooling and automated workflows</strong> to eliminate operational friction and maximize team velocity. Currently focusing on building high-speed container ecosystems and actively pursuing the <strong>CKA (Certified Kubernetes Administrator)</strong> certification.
+                    </p>
+                </section>
 
-  <div class="section">
-    <h3>Summary</h3>
-    <p>
-      Experienced Senior System Administrator with extensive expertise in Linux and Microsoft Windows Servers. Proficient in application and system
-      backups, Exchange, and Active Directory. Demonstrated success in hardware/software roll-outs, staff training, and project management. Strong
-      multitasking abilities and experienced in DEVOPS methodologies and tools
-    </p>
-  </div>
+                <!-- Experience -->
+                <section>
+                    <h3 class="text-sm font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Work Experience</h3>
+                    
+                    <!-- Job 1 & 2 Combined Properly -->
+                    <div class="mb-8 print-break bg-slate-50 p-5 rounded-lg border border-slate-100">
+                        <!-- Main Company Header -->
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-xl font-bold text-slate-900 tracking-tight">Foothill Technology Solutions, LLC</h4>
+                            <span class="text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full whitespace-nowrap mt-2 md:mt-0">Nov 2022 – Present</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-5 font-semibold tracking-wide uppercase">
+                            Nablus (Hybrid) <span class="font-normal text-gray-400">| Contract Client: Restaurant365 (Austin, USA)</span>
+                        </p>
 
-  <div class="section skills-section">
-    <h3>Skills & Expertise</h3>
-    <ul class="skills">
-      <li><strong>System Administration:</strong> Linux and Windows Server Administration, Virtualization (ESXi, vCenter)</li>
-      <li><strong>DevOps & Automation:</strong> Jenkins, SonarQube, Maven, CI/CD pipelines, Scripting (PowerShell, Bash)</li>
-      <li><strong>Cloud & Infrastructure:</strong> AWS, Azure, Cloud Migration</li>
-      <li><strong>Networking & Security:</strong> FortiGate, Networking, Firewall Management</li>
-      <li><strong>Database Management:</strong> MySQL/MariaDB</li>
-      <li><strong>Soft Skills:</strong> Troubleshooting, Problem-Solving, Customer Support, Training, IT Consulting, Project Management</li>
-      <li>Managed over 100+ Linux and Windows servers, ensuring 99.9% uptime and optimal performance.</li>
-      <li>Implemented CI/CD pipelines, reducing deployment time by 50% and improving software delivery efficiency.</li>
-      <li>Automated routine tasks using scripting languages, saving an estimated 200 hours annually.</li>
-      <li>Led team projects on cloud migration, successfully transitioning 10+ applications to AWS and Azure platforms.</li>
-      <li>Provided local consultations to 20+ clients, enhancing IT infrastructure and cybersecurity measures.</li>
-    </ul>
-  </div>
+                        <!-- Role 1: DevOps -->
+                        <div class="mb-6 relative">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                                <h5 class="text-lg font-bold text-slate-800">DevOps Engineer</h5>
+                                <span class="text-sm font-medium text-slate-500">Nov 2025 – Present</span>
+                            </div>
+                            <ul class="list-disc list-outside text-gray-600 space-y-2.5 ml-4 text-sm leading-relaxed">
+                                <li><strong>AI-Assisted Engineering:</strong> Daily utilization of AI co-pilots and custom LLM workflows to accelerate pipeline creation, draft clean infrastructure code, and rapidly troubleshoot complex core errors at scale.</li>
+                                <li><strong>Automated Workflows:</strong> Engineered event-driven pipeline routines and automations utilizing <strong>n8n and webhooks</strong> to streamline cross-team collaboration and significantly reduce manual execution overhead.</li>
+                                <li><strong>The Great Secret Cleanup:</strong> Spearheaded a major security initiative to audit, rotate, and eliminate hardcoded secrets across <strong>132 product repositories</strong>. Successfully migrated environments to the <strong>Kubernetes Secrets Store CSI Driver</strong>, establishing tighter local runtime security boundaries.</li>
+                                <li><strong>GitOps & Smooth Deployments:</strong> Maintain robust orchestrations utilizing <strong>Kubernetes, ArgoCD, and Helm</strong>; successfully introduced <strong>Blue/Green deployment patterns via Argo Rollouts</strong>, ensuring resilient code shipping capabilities with absolute zero downtime.</li>
+                            </ul>
+                        </div>
 
-  <div class="section achievements">
-    <h3>Achievements</h3>
-    <ul>
-      <li>Implemented CI/CD pipelines, reducing deployment time by 50% and improving software delivery efficiency.</li>
-      <li>Led team projects on cloud migration, successfully transitioning 10+ applications to AWS and Azure platforms.</li>
-      <li>Managed over 100+ Linux and Windows servers, ensuring 99.9% uptime and optimal performance.</li>
-    </ul>
-  </div>
+                        <!-- Role 2: Support Engineer -->
+                        <div class="relative pt-5 border-t border-gray-200">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                                <h5 class="text-lg font-bold text-slate-800">Support Engineer / Infrastructure & DevOps Ops</h5>
+                                <span class="text-sm font-medium text-slate-500">Nov 2022 – Nov 2025</span>
+                            </div>
+                            <ul class="list-disc list-outside text-gray-600 space-y-2.5 ml-4 text-sm leading-relaxed">
+                                <li>Engaged directly with customers via phone and screen sharing to thoroughly troubleshoot and resolve complex integration and POS system issues.</li>
+                                <li>Acted as a critical bridge between customers and product teams, meticulously documenting software defects and escalating high-priority issues to Operations Support Managers.</li>
+                                <li>Managed personal ticket queues efficiently while proactively identifying areas to improve self-help documentation and internal processes.</li>
+                                <li>Provided valuable training, mentorship, and onboarding support to new team members to ensure a high standard of customer care.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Job 3 (Concurrent) -->
+                    <div class="mb-8 print-break">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Infrastructure Engineer Specialist / DevOps</h4>
+                            <span class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full whitespace-nowrap">Jan 2020 – Present</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-3 font-semibold tracking-wide uppercase">Premio Consolidated <span class="font-normal text-gray-400">| USA (Remote, Part-time)</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
+                            <li>Provide comprehensive 1st and 2nd level support for both Windows and Linux environments.</li>
+                            <li>Architected and implemented a customized ticketing system to efficiently track and resolve various technical issues.</li>
+                            <li>Automated FAQ processes and managed projects utilizing Agile/Scrum methodologies.</li>
+                        </ul>
+                    </div>
 
-  <div class="section work-experience">
-    <h3>Work Experience</h3>
-    <ul>
-      <li>
-        <h4>Support Specialist | Restaurant365 (11/2022 to Present)</h4>
-        <ul>
-          <li>Promptly gather essential customer information for efficient troubleshooting.</li>
-          <li>Engage with customers through phone calls and screen sharing to address issues comprehensively.</li>
-          <li>Deliver effective solutions to resolve customer problems.</li>
-          <li>Provide clear explanations on POS integration functions.</li>
-          <li>Direct non-POS customer issues to the appropriate teams and members.</li>
-          <li>Thoroughly document software defects, escalating them to Operations Support Manager.</li>
-          <li>Efficiently manage personal queue of customer tickets.</li>
-          <li>Identify areas for self-help documentation improvement.</li>
-          <li>Offer valuable training and mentoring to new team members.</li>
-          <li>Consistently provided exceptional customer support and contributed to team success through effective troubleshooting and problem-solving skills.</li>
-        </ul>
-      </li>
-      <li>
-        <h4>DevOps Engineer | Bloovo (09/2022 to 11/2022)</h4>
-        <ul>
-          <li>Experienced in enhancing development environments, managing CI/CD workflows, and delivering top-notch services to clients in the UAE, KSA, KUWAIT.</li>
-          <li>Skilled in Lens Kubernetes, Terraform, Helm, Traefik, Docker, ArgoCD, Kustomize, kubectl, Grafana, and GitHub.</li>
-          <li>Committed to streamlining operations and staying updated on industry trends for optimal project outcomes.</li>
-        </ul>
-      </li>
-      <li>
-        <h4>Senior System Administrator | Bank Of Palestine (07/2022 to 09/2022)</h4>
-        <ul>
-          <li>Collaborated within a team to contribute to datacenter maintenance, focusing on ensuring the security of all software applications.</li>
-        </ul>
-      </li>
-      <li>
-        <h4>Senior Infrastructure Engineer | KIA Motors (09/2020 to 11/2021)</h4>
-        <ul>
-          <li>Constructed the Datacenter and configured new servers on the ESXi machine within vCenter Server.</li>
-          <li>Managed network and FortiGate firewall security policies.</li>
-          <li>Transitioned from legacy cPanel email services to Microsoft Office 365.</li>
-          <li>Integrated APIs with KIA Korea into local CRM/ERP servers.</li>
-        </ul>
-      </li>
-      <li>
-        <h4>Senior IT Consultant / DevOps Engineering | AXSOS AG (04/2019 to 09/2020)</h4>
-        <ul>
-          <li>Linux administration and related tickets.</li>
-          <li>Security system Kaspersky administration, troubleshooting vulnerabilities and custom apps within Dialog Semiconductor company.</li>
-          <li>ADS, Domain, DNS, Windows server, Windows 10, Windows 11, Exchange server, IIS, RDS services, PowerShell scripting to maintain and help.</li>
-          <li>2nd level support to customers in Europe, SCCM management, ITCM management tool.</li>
-          <li>Linux Bash scripting, Apache server, Nginx server, Axon Ivy Engine, Citrix NetScaler ADC, ESXi server.</li>
-          <li>Databases MySQL/MariaDB management only.</li>
-          <li>Improved development environment with integrating DevOps tools: Jenkins, SonarQube, and Maven.</li>
-        </ul>
-      </li>
-      <li>
-        <h4>IT Consultant | AXSOS AG (01/2015 to 04/2019)</h4>
-        <ul>
-          <li>Technical Support & IT Specialist supporting Windows and Linux 1st level support, 2nd level support.</li>
-        </ul>
-      </li>
-      <li>
-        <h4>IT Assistant Manager & Supervisor | United Motor Trade Co. (11/2014 to 01/2015)</h4>
-        <ul>
-          <li>Supported 200+ employees with technical issues, Windows and server management.</li>
-        </ul>
-      </li>
-      <li>
-        <h4>Junior Web Developer (Part-Time) | Vardot (01/2011 to 01/2013)</h4>
-        <ul>
-          <li>PHP backend coding, HTML5, CSS3; managed to build websites and handle web services.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <div class="section education">
-    <h3>Education</h3>
-    <ul>
-      <li>
-        <strong>BA in Management Information Systems (MIS)</strong><br>
-        University of Petra<br>
-        01/2011 to 01/2014<br>
-        Studied Management Information Systems with a focus on integrating business processes with IT solutions.
-      </li>
-      <li>
-        <strong>IT Diploma</strong><br>
-        Hisham Hijjawi College<br>
-        01/2007 to 01/2009<br>
-        Completed a diploma in Information Technology, covering fundamental IT skills and knowledge.
-      </li>
-    </ul>
-  </div>
-  <div class="section certifications">
-    <h3>Certifications</h3>
-    <ul>
-      <li>Microsoft Certified Solutions Expert (MCSE)</li>
-      <li>Red Hat Certified System Administrator (RHCSA)</li>
-      <li>Dell SonicWALL: Network Security Basic Administration</li>
-    </ul>
-  </div>
+                    <!-- Job 4 -->
+                    <div class="mb-8 print-break">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">DevOps Engineer</h4>
+                            <span class="text-sm font-medium text-gray-400">Sep 2022 – Nov 2022</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">Bloovo <span class="font-normal text-gray-400">| Riyadh, Saudi Arabia (Remote)</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
+                            <li>Optimized developer feedback loops and managed CI/CD workflows for clients across the UAE, KSA, and Kuwait.</li>
+                            <li>Maintained production environments using <strong>Lens Kubernetes, Terraform, Helm, Traefik, Docker, ArgoCD, Kustomize, and Grafana</strong>.</li>
+                        </ul>
+                    </div>
 
-  <footer class="text-center">
-    <p>© <span id="currentYear"></span> | <a href="https://jamoustech.com/" title="JamousTech LLC">JamousTech LLC</a></p>
-  </footer>
-</div>
-<script>
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
-</script>
+                    <!-- Job 5 -->
+                    <div class="mb-8 print-break">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Senior System Administrator</h4>
+                            <span class="text-sm font-medium text-gray-400">Jul 2022 – Sep 2022</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">Bank of Palestine <span class="font-normal text-gray-400">| Ramallah (On-site)</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
+                            <li>Collaborated within a dedicated team focused on datacenter maintenance and ensuring the robust security of critical software applications.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Job 6 -->
+                    <div class="mb-8 print-break">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Infrastructure Engineer Specialist</h4>
+                            <span class="text-sm font-medium text-gray-400">Sep 2020 – Nov 2021</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">KIA Motors (Arab Motor Trade) <span class="font-normal text-gray-400">| Palestinian Authority</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
+                            <li>Served as the primary technical system manager, overseeing all hardware and software operations.</li>
+                            <li>Led critical systems integration with the parent company in Korea, including unifying APIs with local CRM/ERP servers.</li>
+                            <li>Built and configured a new datacenter using <strong>vCenter Server on ESXi</strong> and implemented Jenkins for automated data synchronization.</li>
+                            <li>Migrated legacy cPanel email services to <strong>Microsoft Office 365</strong> and managed FortiGate firewall security policies.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 7 -->
+                    <div class="mb-8 print-break">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">DevOps Engineer & IT Consultant</h4>
+                            <span class="text-sm font-medium text-gray-400">Jan 2015 – Sep 2020</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">AXSOS AG <span class="font-normal text-gray-400">| Stuttgart, Germany / Ramallah</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 ml-4 text-sm">
+                            <li>Transitioned to DevOps Engineer Specialist (2019), managing technical customer requirements and injecting <strong>Jenkins, SonarQube, and Maven</strong> frameworks into development flows.</li>
+                            <li>As Senior IT Consultant, administered Linux and Windows hybrid environments, managing AD, DNS, Exchange, IIS, and providing 2nd level support for European customers.</li>
+                            <li>Utilized <strong>PowerShell and Linux Bash scripting</strong> for environment automation and maintained tools like SCCM, Apache, Nginx, and ESXi servers.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Job 8 -->
+                    <div class="print-break">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
+                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Previous IT & Development Roles</h4>
+                            <span class="text-sm font-medium text-gray-400">2007 – 2014</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">Various Organizations</p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 ml-4 text-sm">
+                            <li><strong>IT Assistant Manager & Supervisor</strong> at United Motor Trade (Oct 2013 - Nov 2014): Supported 200+ employees with technical issues and Windows Server management.</li>
+                            <li><strong>Junior Web Developer</strong> at Vardot (2011 - 2013): Built and managed websites using PHP, HTML5, and CSS3.</li>
+                            <li><strong>System Administrator & Trainer</strong> at Pioneers Baccalaureate School (Jan 2008 - Dec 2009): Set up school servers and taught computer skills programs.</li>
+                        </ul>
+                    </div>
+
+                </section>
+            </div>
+
+            <!-- Right Column (Sidebar) -->
+            <div class="w-full md:w-1/3 bg-slate-50 p-8 md:p-12">
+                
+                <!-- Skills -->
+                <section class="mb-10">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Technical Toolkit</h3>
+                    
+                    <div class="mb-5">
+                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Orchestration & Runtime</h4>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Kubernetes</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Docker</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Helm</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Kustomize</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">GitOps & Integration</h4>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">ArgoCD</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Argo Rollouts</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">GitLab CI/CD</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Jenkins</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Cloud & Infrastructure</h4>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">AWS</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Microsoft Azure</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">VMware ESXi</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Terraform</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Observability Stack</h4>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-slate-900 border border-slate-900 rounded text-xs font-semibold text-white shadow-sm">Prometheus</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Grafana</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Automation & Security</h4>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Secrets Store CSI Driver</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">AI Tools / LLMs</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">n8n / Webhooks</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Bash / PowerShell</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-5">
+                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Databases & Cache</h4>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Redis</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">AWS ElastiCache</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">SQL Server</span>
+                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">PostgreSQL</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications -->
+                <section class="mb-10">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Certifications</h3>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                        <h4 class="font-bold text-slate-800 text-xs">Certified Kubernetes Administrator (CKA)</h4>
+                        <p class="text-xs text-blue-600 font-medium tracking-wider uppercase mt-1">In Active Preparation</p>
+                    </div>
+                    <div class="mt-4 pl-4 border-l-2 border-gray-200">
+                        <h4 class="font-semibold text-slate-700 text-xs">CompTIA A+</h4>
+                    </div>
+                     <div class="mt-2 pl-4 border-l-2 border-gray-200">
+                        <h4 class="font-semibold text-slate-700 text-xs">ICDL</h4>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="mb-10">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Education</h3>
+                    <div class="mb-4">
+                        <h4 class="font-bold text-slate-800 text-sm">BA, Management Information Systems</h4>
+                        <p class="text-sm text-gray-600">University of Petra, Jordan</p>
+                        <p class="text-xs text-gray-500 mt-0.5">2011 - 2014</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">IT Diploma</h4>
+                        <p class="text-sm text-gray-600">Hisham Hijjawi College</p>
+                        <p class="text-xs text-gray-500 mt-0.5">2007 - 2009</p>
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section>
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Languages</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center text-sm">
+                            <span class="text-gray-700 font-medium">Arabic</span>
+                            <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded font-medium">Native</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm">
+                            <span class="text-gray-700 font-medium">English</span>
+                            <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded font-medium">Excellent</span>
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
