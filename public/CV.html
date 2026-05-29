@@ -353,31 +353,89 @@
                     <section>
                         <h3 class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider">Languages</h3>
                         <ul class="space-y-2">
-                            <li class="flex justify-between items-center text-xs print-text-sm">
-                                <span class="text-gray-700 font-medium">Arabic</span>
-                                <span class="text-[10px] bg-white border border-gray-200 text-gray-600 px-1.5 py-0.5 rounded font-medium uppercase">Native</span>
-                            </li>
-                            <li class="flex justify-between items-center text-xs print-text-sm">
-                                <span class="text-gray-700 font-medium">English</span>
-                                <span class="text-[10px] bg-white border border-gray-200 text-gray-600 px-1.5 py-0.5 rounded font-medium uppercase">Fluent</span>
-                            </li>
-                        </ul>
-                    </section>
+                        <li class="flex justify-between items-center text-sm print-text-sm">
+                            <span class="text-gray-700 font-medium">Arabic</span>
+                            <span class="text-[10px] bg-white border border-gray-200 text-gray-600 px-1.5 py-0.5 rounded font-medium uppercase">Native</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm print-text-sm">
+                            <span class="text-gray-700 font-medium">English</span>
+                            <span class="text-[10px] bg-white border border-gray-200 text-gray-600 px-1.5 py-0.5 rounded font-medium uppercase">Fluent</span>
+                        </li>
+                    </ul>
+                </section>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Cover Letter Modal -->
+    <div id="coverLetterModal" class="fixed inset-0 bg-slate-900 bg-opacity-60 z-[60] hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden">
+            <div class="bg-slate-900 text-white p-5 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <h3 class="font-bold">AI Cover Letter Generator</h3>
+                </div>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto flex-1">
+                <p class="text-sm text-gray-600 mb-5">Enter a target role and company. The AI will read my resume and generate a tailored cover letter demonstrating why my infrastructure and DevOps skills make me the perfect fit.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Target Job Title</label>
+                        <input type="text" id="clJobTitle" placeholder="e.g. Senior DevOps Engineer" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Target Company</label>
+                        <input type="text" id="clCompany" placeholder="e.g. Google" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Job Description Notes (Optional)</label>
+                    <textarea id="clContext" rows="2" placeholder="Paste specific requirements here for a better match..." class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                </div>
+
+                <button id="generateClBtn" onclick="generateCoverLetter()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg px-4 py-2.5 transition flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    Generate with Gemini AI
+                </button>
+
+                <!-- Generation Output Area -->
+                <div id="clOutputArea" class="mt-6 hidden">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-xs font-bold text-gray-700">Generated Cover Letter</label>
+                        <button onclick="copyCoverLetter()" id="copyClBtn" class="text-xs text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                            Copy to Clipboard
+                        </button>
+                    </div>
+                    <div id="clLoading" class="hidden flex justify-center py-8">
+                        <div class="flex gap-1.5 items-center">
+                            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0ms;"></div>
+                            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 150ms;"></div>
+                            <div class="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 300ms;"></div>
+                        </div>
+                    </div>
+                    <div id="clResult" class="w-full border border-gray-200 bg-gray-50 rounded-lg p-4 text-sm text-gray-700 whitespace-pre-wrap min-h-[200px] shadow-inner"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- AI Chatbot UI (Hidden in Print Mode) -->
-    <div class="fixed bottom-6 right-6 z-50 print:hidden flex flex-col items-end">
+    <div class="fixed bottom-6 right-6 z-50 print:hidden flex flex-col items-end gap-3">
         
         <!-- Chat Window -->
-        <div id="chatWindow" class="hidden w-80 sm:w-96 bg-white rounded-xl shadow-2xl border border-gray-200 mb-4 flex flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right">
+        <div id="chatWindow" class="hidden w-80 sm:w-96 bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right">
             <!-- Chat Header -->
             <div class="bg-slate-900 text-white p-4 flex justify-between items-center">
                 <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
                     <h3 class="font-bold text-sm">Resume AI Assistant</h3>
                 </div>
                 <button id="closeChatBtn" class="text-gray-400 hover:text-white transition">
@@ -386,39 +444,79 @@
             </div>
             
             <!-- Chat Messages Area -->
-            <div id="chatMessages" class="flex-1 p-4 h-80 overflow-y-auto bg-slate-50 flex flex-col gap-3 text-sm">
+            <div id="chatMessages" class="flex-1 p-4 h-72 overflow-y-auto bg-slate-50 flex flex-col gap-3 text-sm relative">
                 <!-- Welcome Message -->
                 <div class="flex flex-col items-start gap-1">
                     <span class="text-[10px] text-gray-500 font-medium ml-1">AI Assistant</span>
                     <div class="bg-white border border-gray-200 text-gray-800 p-3 rounded-2xl rounded-tl-sm shadow-sm max-w-[85%] leading-relaxed">
-                        Hi! I'm an AI assistant trained on Ahmad's resume. Feel free to ask me anything about his experience, skills, or background!
+                        Hi! I'm an AI trained on Ahmad's resume. Ask me anything about his background, or try a quick prompt below!
                     </div>
+                </div>
+                
+                <!-- Quick Prompts -->
+                <div id="quickPrompts" class="flex flex-wrap gap-2 mt-2">
+                    <button onclick="useQuickPrompt('Summarize Ahmad\'s core skills.')" class="text-[11px] bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1.5 rounded-full hover:bg-blue-100 transition whitespace-nowrap">Summarize skills</button>
+                    <button onclick="useQuickPrompt('What is his experience with Kubernetes?')" class="text-[11px] bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1.5 rounded-full hover:bg-blue-100 transition whitespace-nowrap">Kubernetes experience?</button>
+                    <button onclick="useQuickPrompt('Tell me about the Secret Cleanup project.')" class="text-[11px] bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1.5 rounded-full hover:bg-blue-100 transition whitespace-nowrap">Secret Cleanup project</button>
                 </div>
             </div>
             
             <!-- Chat Input Area -->
             <div class="p-3 bg-white border-t border-gray-200 flex gap-2">
-                <input type="text" id="chatInput" placeholder="Ask about Ahmad's experience..." class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" onkeypress="handleKeyPress(event)">
+                <input type="text" id="chatInput" placeholder="Ask a question..." class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" onkeypress="handleKeyPress(event)">
                 <button id="sendBtn" onclick="sendMessage()" class="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 transition flex items-center justify-center">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Floating Action Button -->
-        <button id="toggleChatBtn" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-        </button>
+        <!-- Floating Action Buttons -->
+        <div class="flex flex-col gap-3 items-end">
+            <!-- Open Modal Button -->
+            <button id="openModalBtn" title="Generate Tailored Cover Letter" class="bg-slate-800 hover:bg-slate-900 text-white rounded-full p-3 shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center flex-row-reverse gap-2 group">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap text-sm font-medium pr-1 opacity-0 group-hover:opacity-100">Write Cover Letter</span>
+            </button>
+            
+            <!-- Toggle Chat Button -->
+            <button id="toggleChatBtn" title="Chat with Resume" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            </button>
+        </div>
     </div>
 
     <script>
+        // API Configuration (Empty string lets the platform inject it dynamically when hosted)
+        const apiKey = ""; 
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+        // Chatbot Variables
         const toggleChatBtn = document.getElementById('toggleChatBtn');
         const closeChatBtn = document.getElementById('closeChatBtn');
         const chatWindow = document.getElementById('chatWindow');
         const chatInput = document.getElementById('chatInput');
         const chatMessages = document.getElementById('chatMessages');
         const sendBtn = document.getElementById('sendBtn');
+        const quickPrompts = document.getElementById('quickPrompts');
+        
+        let chatHistory = [];
+        let isGenerating = false;
 
+        // Modal Variables
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const coverLetterModal = document.getElementById('coverLetterModal');
+        const clOutputArea = document.getElementById('clOutputArea');
+        const clLoading = document.getElementById('clLoading');
+        const clResult = document.getElementById('clResult');
+        const generateClBtn = document.getElementById('generateClBtn');
+        const copyClBtn = document.getElementById('copyClBtn');
+
+        // Extract Resume Context
+        const getResumeContext = () => document.querySelector('.main-container').innerText;
+
+        // --- Event Listeners ---
+        
         toggleChatBtn.addEventListener('click', () => {
             chatWindow.classList.toggle('hidden');
             if(!chatWindow.classList.contains('hidden')) {
@@ -430,13 +528,33 @@
             chatWindow.classList.add('hidden');
         });
 
-        let chatHistory = [];
-        let isGenerating = false;
+        openModalBtn.addEventListener('click', () => {
+            coverLetterModal.classList.remove('hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            coverLetterModal.classList.add('hidden');
+        });
+
+        // Close modal on outside click
+        coverLetterModal.addEventListener('click', (e) => {
+            if (e.target === coverLetterModal) {
+                coverLetterModal.classList.add('hidden');
+            }
+        });
+
+        // --- Chatbot Logic ---
 
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
                 sendMessage();
             }
+        }
+
+        function useQuickPrompt(promptText) {
+            if (quickPrompts) quickPrompts.classList.add('hidden');
+            chatInput.value = promptText;
+            sendMessage();
         }
 
         function appendMessage(sender, text) {
@@ -452,6 +570,7 @@
                 bubble.className = 'bg-blue-600 text-white p-3 rounded-2xl rounded-tr-sm shadow-sm max-w-[85%] leading-relaxed break-words';
             } else {
                 bubble.className = 'bg-white border border-gray-200 text-gray-800 p-3 rounded-2xl rounded-tl-sm shadow-sm max-w-[85%] leading-relaxed break-words';
+                // Very basic markdown parsing for bold text
                 bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             }
             if (sender === 'user') bubble.innerText = text;
@@ -462,7 +581,7 @@
             chatMessages.scrollTop = chatMessages.scrollHeight; 
         }
 
-        function showLoading() {
+        function showChatLoading() {
             const loadingId = 'loading-' + Date.now();
             const msgDiv = document.createElement('div');
             msgDiv.id = loadingId;
@@ -481,14 +600,13 @@
             return loadingId;
         }
 
-        function removeElement(id) {
-            const el = document.getElementById(id);
-            if (el) el.remove();
-        }
-
         async function sendMessage() {
             const text = chatInput.value.trim();
             if (!text || isGenerating) return;
+
+            if (quickPrompts && !quickPrompts.classList.contains('hidden')) {
+                quickPrompts.classList.add('hidden');
+            }
 
             appendMessage('user', text);
             chatInput.value = '';
@@ -498,28 +616,21 @@
 
             chatHistory.push({ role: 'user', parts: [{ text: text }] });
 
-            const resumeContent = document.querySelector('.main-container').innerText;
-            
             const systemPrompt = `
                 You are a helpful, professional AI assistant representing Ahmad Jamous, a DevOps & Cloud Infrastructure Engineer. 
                 Your job is to answer questions from recruiters or visitors about Ahmad's experience, skills, and qualifications.
                 Base ALL your answers strictly on the following resume text. 
-                If the user asks something not covered in the resume, politely inform them that you can only answer questions related to Ahmad's professional background as outlined in his resume.
                 Keep your answers concise, friendly, and well-structured.
-                Resume Data: ${resumeContent}
+                Resume Data: ${getResumeContext()}
             `;
 
-            const loadingId = showLoading();
+            const loadingId = showChatLoading();
 
             try {
-                // To activate the chatbot on a live hosted site, you will need to add a Google Gemini API key here.
-                const apiKey = ""; 
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-                
                 if(!apiKey) {
                    setTimeout(() => {
-                        removeElement(loadingId);
-                        appendMessage('ai', 'To enable live AI chatting, please insert a Gemini API key into the source code.');
+                        document.getElementById(loadingId)?.remove();
+                        appendMessage('ai', 'API Key not configured. (For local testing, insert your Gemini API Key in the source code).');
                         isGenerating = false;
                         sendBtn.disabled = false;
                         sendBtn.classList.remove('opacity-50');
@@ -545,19 +656,116 @@
 
                 if (aiResponseText) {
                     chatHistory.push({ role: 'model', parts: [{ text: aiResponseText }] });
-                    removeElement(loadingId);
+                    document.getElementById(loadingId)?.remove();
                     appendMessage('ai', aiResponseText);
                 }
 
             } catch (error) {
                 console.error("Error:", error);
-                removeElement(loadingId);
-                appendMessage('ai', 'Sorry, I am having trouble connecting right now. Please try again later or reach out to Ahmad directly via email or LinkedIn!');
+                document.getElementById(loadingId)?.remove();
+                appendMessage('ai', 'Sorry, I am having trouble connecting right now. Please try again later.');
             } finally {
                 isGenerating = false;
                 sendBtn.disabled = false;
                 sendBtn.classList.remove('opacity-50');
                 chatInput.focus();
+            }
+        }
+
+        // --- Cover Letter Generator Logic ---
+
+        async function generateCoverLetter() {
+            const role = document.getElementById('clJobTitle').value.trim() || 'Software/DevOps Engineer';
+            const company = document.getElementById('clCompany').value.trim() || 'your company';
+            const context = document.getElementById('clContext').value.trim();
+
+            clOutputArea.classList.remove('hidden');
+            clLoading.classList.remove('hidden');
+            clResult.classList.add('hidden');
+            clResult.innerText = '';
+            generateClBtn.disabled = true;
+            generateClBtn.classList.add('opacity-50');
+            copyClBtn.innerText = "Copy to Clipboard";
+
+            const promptText = `
+                Act as Ahmad Jamous, an experienced DevOps & Infrastructure Engineer.
+                Write a concise, professional, and confident cover letter applying for the role of "${role}" at "${company}".
+                
+                Use the following resume text as your ONLY source of truth for skills and experience. Do not make up any experience, metrics, or technologies not listed here.
+                Resume Data: ${getResumeContext()}
+                
+                ${context ? `Additionally, emphasize skills that align with these job description notes: ${context}` : ''}
+                
+                Format the output as a standard cover letter. Do not include placeholders for addresses (e.g. [Company Address]), just start with "Dear Hiring Manager,".
+            `;
+
+            try {
+                if(!apiKey) {
+                    setTimeout(() => {
+                        clLoading.classList.add('hidden');
+                        clResult.classList.remove('hidden');
+                        clResult.innerText = "API Key not configured. Please add your Gemini API key in the code to generate cover letters.";
+                        generateClBtn.disabled = false;
+                        generateClBtn.classList.remove('opacity-50');
+                    }, 800);
+                    return;
+                }
+
+                const payload = {
+                    contents: [{ parts: [{ text: promptText }] }],
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) throw new Error('API Error');
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    clLoading.classList.add('hidden');
+                    clResult.classList.remove('hidden');
+                    clResult.innerText = text.trim();
+                }
+
+            } catch (error) {
+                console.error("Cover Letter Gen Error:", error);
+                clLoading.classList.add('hidden');
+                clResult.classList.remove('hidden');
+                clResult.innerText = "An error occurred while generating the cover letter. Please try again.";
+            } finally {
+                generateClBtn.disabled = false;
+                generateClBtn.classList.remove('opacity-50');
+            }
+        }
+
+        function copyCoverLetter() {
+            const textToCopy = clResult.innerText;
+            if(!textToCopy) return;
+
+            // Use the older execCommand method to ensure iframe compatibility
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                copyClBtn.innerText = "Copied!";
+                setTimeout(() => {
+                    copyClBtn.innerHTML = `
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                        Copy to Clipboard
+                    `;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text', err);
+            } finally {
+                document.body.removeChild(textArea);
             }
         }
     </script>
