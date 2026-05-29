@@ -11,36 +11,68 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
         }
-        .print-break {
-            page-break-inside: avoid;
+        /* Optimization for strict 2-page A4 print */
+        @page {
+            size: A4;
+            margin: 0.5cm; /* Tighter margins for print */
+        }
+        @media print {
+            body {
+                background-color: #ffffff;
+                -webkit-print-color-adjust: exact; /* Ensure colors print */
+                print-color-adjust: exact;
+            }
+            .main-container {
+                box-shadow: none !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            /* Control where page breaks happen */
+            .page-break-before {
+                page-break-before: always;
+            }
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+            /* Adjust spacing slightly for print to fit */
+            .print-py-tight {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+            .print-text-sm {
+                font-size: 0.85rem !important; /* Slightly smaller base text for print */
+                line-height: 1.4 !important;
+            }
         }
     </style>
 </head>
-<body class="text-gray-800 antialiased p-4 md:p-8">
+<body class="text-gray-800 antialiased md:p-4 print:p-0">
 
-    <div class="max-w-5xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden print:shadow-none print:rounded-none">
+    <div class="main-container max-w-[21cm] mx-auto bg-white shadow-xl rounded-sm overflow-hidden min-h-[29.7cm]">
         
         <!-- Header Section -->
-        <header class="bg-slate-900 text-white p-8 md:p-12">
-            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2">Ahmad Jamous</h1>
-            <h2 class="text-xl md:text-2xl text-blue-400 font-medium mb-6">DevOps & Cloud Infrastructure Engineer</h2>
+        <header class="bg-slate-900 text-white p-6 md:p-8 print:p-6 print-py-tight avoid-break">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-1">Ahmad Jamous</h1>
+            <h2 class="text-lg md:text-xl text-blue-400 font-medium mb-4">DevOps & Cloud Infrastructure Engineer</h2>
             
-            <div class="flex flex-wrap gap-4 text-sm text-gray-300">
-                <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs md:text-sm text-gray-300">
+                <div class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                     Nablus, West Bank
                 </div>
-                <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                <div class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                     +970 599359308
                 </div>
-                <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <div class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     ahmad.jamous@gmail.com
                 </div>
-                <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    <a href="https://www.linkedin.com/in/ahmad-jamous-82606156/" class="hover:text-blue-400 transition" target="_blank">LinkedIn Profile</a>
+                <div class="flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://www.linkedin.com/in/ahmad-jamous-82606156/" class="hover:text-blue-400 transition" target="_blank">linkedin.com/in/ahmad-jamous</a>
                 </div>
             </div>
         </header>
@@ -49,139 +81,136 @@
         <div class="flex flex-col md:flex-row">
             
             <!-- Left Column (Main Content) -->
-            <div class="w-full md:w-2/3 p-8 md:p-12 border-r border-gray-100">
+            <div class="w-full md:w-[68%] p-6 md:p-8 print:p-6 border-r border-gray-100">
                 
                 <!-- Summary -->
-                <section class="mb-10">
-                    <h3 class="text-sm font-bold text-slate-400 border-b border-gray-200 pb-2 mb-4 uppercase tracking-wider">Professional Profile</h3>
-                    <p class="text-gray-600 leading-relaxed text-justify">
-                        Resourceful <strong>DevOps and Infrastructure Engineer</strong> with over a decade of hands-on technical expertise bridging the gap between stable IT systems and modern cloud-native lifecycles. I specialize in orchestrating robust <strong>Kubernetes</strong> clusters, managing complex cloud resources, and automating secure enterprise infrastructure. I am highly passionate about integrating advanced <strong>AI tooling and automated workflows</strong> to eliminate operational friction and maximize team velocity. Currently focusing on building high-speed container ecosystems and actively pursuing the <strong>CKA (Certified Kubernetes Administrator)</strong> certification.
+                <section class="mb-6 avoid-break">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-1.5 mb-3 uppercase tracking-wider">Professional Profile</h3>
+                    <p class="text-gray-600 leading-relaxed text-justify text-sm print-text-sm">
+                        Resourceful <strong>DevOps and Infrastructure Engineer</strong> with over a decade of hands-on technical expertise bridging the gap between stable IT systems and modern cloud-native lifecycles. I specialize in orchestrating robust <strong>Kubernetes</strong> clusters, managing complex cloud resources, and automating secure enterprise infrastructure. Highly passionate about integrating advanced <strong>AI tooling and automated workflows</strong> to eliminate operational friction and maximize team velocity. Currently focusing on building high-speed container ecosystems and actively pursuing the <strong>CKA (Certified Kubernetes Administrator)</strong> certification.
                     </p>
                 </section>
 
                 <!-- Experience -->
                 <section>
-                    <h3 class="text-sm font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Work Experience</h3>
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-1.5 mb-4 uppercase tracking-wider">Work Experience</h3>
                     
                     <!-- Job 1 & 2 Combined Properly -->
-                    <div class="mb-8 print-break bg-slate-50 p-5 rounded-lg border border-slate-100">
-                        <!-- Main Company Header -->
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                            <h4 class="text-xl font-bold text-slate-900 tracking-tight">Foothill Technology Solutions, LLC</h4>
-                            <span class="text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full whitespace-nowrap mt-2 md:mt-0">Nov 2022 – Present</span>
+                    <div class="mb-6 avoid-break bg-slate-50 p-4 rounded border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-0.5">
+                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Foothill Technology Solutions, LLC</h4>
+                            <span class="text-xs font-medium text-blue-600 bg-blue-100 px-2.5 py-0.5 rounded-full mt-1 md:mt-0">Nov 2022 – Present</span>
                         </div>
-                        <p class="text-sm text-slate-500 mb-5 font-semibold tracking-wide uppercase">
+                        <p class="text-xs text-slate-500 mb-4 font-semibold uppercase">
                             Nablus (Hybrid) <span class="font-normal text-gray-400">| Contract Client: Restaurant365 (Austin, USA)</span>
                         </p>
 
                         <!-- Role 1: DevOps -->
-                        <div class="mb-6 relative">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                                <h5 class="text-lg font-bold text-slate-800">DevOps Engineer</h5>
-                                <span class="text-sm font-medium text-slate-500">Nov 2025 – Present</span>
+                        <div class="mb-4">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1.5">
+                                <h5 class="text-base font-bold text-slate-800">DevOps Engineer</h5>
+                                <span class="text-xs font-medium text-slate-500">Nov 2025 – Present</span>
                             </div>
-                            <ul class="list-disc list-outside text-gray-600 space-y-2.5 ml-4 text-sm leading-relaxed">
-                                <li><strong>AI-Assisted Engineering:</strong> Daily utilization of AI co-pilots and custom LLM workflows to accelerate pipeline creation, draft clean infrastructure code, and rapidly troubleshoot complex core errors at scale.</li>
-                                <li><strong>Automated Workflows:</strong> Engineered event-driven pipeline routines and automations utilizing <strong>n8n and webhooks</strong> to streamline cross-team collaboration and significantly reduce manual execution overhead.</li>
-                                <li><strong>The Great Secret Cleanup:</strong> Spearheaded a major security initiative to audit, rotate, and eliminate hardcoded secrets across <strong>132 product repositories</strong>. Successfully migrated environments to the <strong>Kubernetes Secrets Store CSI Driver</strong>, establishing tighter local runtime security boundaries.</li>
-                                <li><strong>GitOps & Smooth Deployments:</strong> Maintain robust orchestrations utilizing <strong>Kubernetes, ArgoCD, and Helm</strong>; successfully introduced <strong>Blue/Green deployment patterns via Argo Rollouts</strong>, ensuring resilient code shipping capabilities with absolute zero downtime.</li>
+                            <ul class="list-disc list-outside text-gray-600 space-y-1.5 ml-4 text-sm print-text-sm">
+                                <li><strong>AI-Assisted Engineering:</strong> Daily utilization of AI co-pilots and custom LLM workflows to accelerate pipeline creation, draft infrastructure code, and troubleshoot complex core errors at scale.</li>
+                                <li><strong>Automated Workflows:</strong> Engineered event-driven pipeline routines utilizing <strong>n8n and webhooks</strong> to streamline cross-team collaboration and reduce manual execution overhead.</li>
+                                <li><strong>The Great Secret Cleanup:</strong> Spearheaded a security initiative to audit and rotate hardcoded secrets across <strong>132 product repositories</strong>. Migrated environments to the <strong>Kubernetes Secrets Store CSI Driver</strong>.</li>
+                                <li><strong>GitOps & Smooth Deployments:</strong> Maintain robust orchestrations utilizing <strong>Kubernetes, ArgoCD, and Helm</strong>; introduced <strong>Blue/Green deployment patterns via Argo Rollouts</strong> for zero downtime.</li>
                             </ul>
                         </div>
 
                         <!-- Role 2: Support Engineer -->
-                        <div class="relative pt-5 border-t border-gray-200">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                                <h5 class="text-lg font-bold text-slate-800">Support Engineer / Infrastructure & DevOps Ops</h5>
-                                <span class="text-sm font-medium text-slate-500">Nov 2022 – Nov 2025</span>
+                        <div class="pt-3 border-t border-gray-200">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1.5">
+                                <h5 class="text-base font-bold text-slate-800">Support Engineer / Infrastructure & DevOps Ops</h5>
+                                <span class="text-xs font-medium text-slate-500">Nov 2022 – Nov 2025</span>
                             </div>
-                            <ul class="list-disc list-outside text-gray-600 space-y-2.5 ml-4 text-sm leading-relaxed">
-                                <li>Engaged directly with customers via phone and screen sharing to thoroughly troubleshoot and resolve complex integration and POS system issues.</li>
-                                <li>Acted as a critical bridge between customers and product teams, meticulously documenting software defects and escalating high-priority issues to Operations Support Managers.</li>
-                                <li>Managed personal ticket queues efficiently while proactively identifying areas to improve self-help documentation and internal processes.</li>
+                            <ul class="list-disc list-outside text-gray-600 space-y-1.5 ml-4 text-sm print-text-sm">
+                                <li>Engaged directly with customers via phone and screen sharing to thoroughly troubleshoot complex POS system issues.</li>
+                                <li>Acted as a critical bridge between customers and product teams, meticulously documenting software defects and escalating high-priority issues.</li>
                                 <li>Provided valuable training, mentorship, and onboarding support to new team members to ensure a high standard of customer care.</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <!-- Job 3 (Concurrent) -->
-                    <div class="mb-8 print-break">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Infrastructure Engineer Specialist / DevOps</h4>
-                            <span class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full whitespace-nowrap">Jan 2020 – Present</span>
+                    <!-- Job 3 -->
+                    <div class="mb-5 avoid-break">
+                        <div class="flex justify-between items-baseline mb-0.5">
+                            <h4 class="text-base font-bold text-slate-900 tracking-tight">Infrastructure Engineer Specialist / DevOps</h4>
+                            <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">Jan 2020 – Present</span>
                         </div>
-                        <p class="text-sm text-slate-500 mb-3 font-semibold tracking-wide uppercase">Premio Consolidated <span class="font-normal text-gray-400">| USA (Remote, Part-time)</span></p>
-                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
+                        <p class="text-xs text-slate-500 mb-2 font-semibold uppercase">Premio Consolidated <span class="font-normal text-gray-400">| USA (Remote, Part-time)</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm print-text-sm">
                             <li>Provide comprehensive 1st and 2nd level support for both Windows and Linux environments.</li>
-                            <li>Architected and implemented a customized ticketing system to efficiently track and resolve various technical issues.</li>
-                            <li>Automated FAQ processes and managed projects utilizing Agile/Scrum methodologies.</li>
+                            <li>Architected and implemented a customized ticketing system and automated FAQ processes.</li>
                         </ul>
                     </div>
 
                     <!-- Job 4 -->
-                    <div class="mb-8 print-break">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">DevOps Engineer</h4>
-                            <span class="text-sm font-medium text-gray-400">Sep 2022 – Nov 2022</span>
+                    <div class="mb-5 avoid-break">
+                        <div class="flex justify-between items-baseline mb-0.5">
+                            <h4 class="text-base font-bold text-slate-900 tracking-tight">DevOps Engineer</h4>
+                            <span class="text-xs font-medium text-gray-400">Sep 2022 – Nov 2022</span>
                         </div>
-                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">Bloovo <span class="font-normal text-gray-400">| Riyadh, Saudi Arabia (Remote)</span></p>
-                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
+                        <p class="text-xs text-slate-500 mb-2 font-semibold uppercase">Bloovo <span class="font-normal text-gray-400">| Riyadh, Saudi Arabia (Remote)</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm print-text-sm">
                             <li>Optimized developer feedback loops and managed CI/CD workflows for clients across the UAE, KSA, and Kuwait.</li>
-                            <li>Maintained production environments using <strong>Lens Kubernetes, Terraform, Helm, Traefik, Docker, ArgoCD, Kustomize, and Grafana</strong>.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Job 5 -->
-                    <div class="mb-8 print-break">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Senior System Administrator</h4>
-                            <span class="text-sm font-medium text-gray-400">Jul 2022 – Sep 2022</span>
-                        </div>
-                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">Bank of Palestine <span class="font-normal text-gray-400">| Ramallah (On-site)</span></p>
-                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
-                            <li>Collaborated within a dedicated team focused on datacenter maintenance and ensuring the robust security of critical software applications.</li>
+                            <li>Maintained production environments using <strong>Lens Kubernetes, Terraform, Helm, Traefik, Docker, ArgoCD, and Grafana</strong>.</li>
                         </ul>
                     </div>
                     
-                    <!-- Job 6 -->
-                    <div class="mb-8 print-break">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Infrastructure Engineer Specialist</h4>
-                            <span class="text-sm font-medium text-gray-400">Sep 2020 – Nov 2021</span>
+                    <!-- Job 5 -->
+                    <div class="mb-5 avoid-break">
+                        <div class="flex justify-between items-baseline mb-0.5">
+                            <h4 class="text-base font-bold text-slate-900 tracking-tight">Senior System Administrator</h4>
+                            <span class="text-xs font-medium text-gray-400">Jul 2022 – Sep 2022</span>
                         </div>
-                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">KIA Motors (Arab Motor Trade) <span class="font-normal text-gray-400">| Palestinian Authority</span></p>
-                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm">
-                            <li>Served as the primary technical system manager, overseeing all hardware and software operations.</li>
-                            <li>Led critical systems integration with the parent company in Korea, including unifying APIs with local CRM/ERP servers.</li>
-                            <li>Built and configured a new datacenter using <strong>vCenter Server on ESXi</strong> and implemented Jenkins for automated data synchronization.</li>
-                            <li>Migrated legacy cPanel email services to <strong>Microsoft Office 365</strong> and managed FortiGate firewall security policies.</li>
+                        <p class="text-xs text-slate-500 mb-1.5 font-semibold uppercase">Bank of Palestine <span class="font-normal text-gray-400">| Ramallah (On-site)</span></p>
+                        <p class="text-gray-600 text-sm print-text-sm">Collaborated within a dedicated team focused on datacenter maintenance and ensuring robust software security.</p>
+                    </div>
+
+                    <!-- Explicit Page Break for Print -->
+                    <div class="page-break-before hidden print:block"></div>
+
+                    <!-- Job 6 -->
+                    <div class="mb-5 avoid-break mt-6 print:mt-0">
+                        <div class="flex justify-between items-baseline mb-0.5">
+                            <h4 class="text-base font-bold text-slate-900 tracking-tight">Infrastructure Engineer Specialist</h4>
+                            <span class="text-xs font-medium text-gray-400">Sep 2020 – Nov 2021</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2 font-semibold uppercase">KIA Motors (Arab Motor Trade) <span class="font-normal text-gray-400">| Palestinian Authority</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm print-text-sm">
+                            <li>Served as primary technical system manager, overseeing all hardware and software operations.</li>
+                            <li>Built a new datacenter using <strong>vCenter Server on ESXi</strong> and implemented Jenkins for automated data synchronization with Korea HQ.</li>
+                            <li>Migrated legacy cPanel email services to <strong>Microsoft Office 365</strong>.</li>
                         </ul>
                     </div>
 
                     <!-- Job 7 -->
-                    <div class="mb-8 print-break">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">DevOps Engineer & IT Consultant</h4>
-                            <span class="text-sm font-medium text-gray-400">Jan 2015 – Sep 2020</span>
+                    <div class="mb-5 avoid-break">
+                        <div class="flex justify-between items-baseline mb-0.5">
+                            <h4 class="text-base font-bold text-slate-900 tracking-tight">DevOps Engineer & IT Consultant</h4>
+                            <span class="text-xs font-medium text-gray-400">Jan 2015 – Sep 2020</span>
                         </div>
-                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">AXSOS AG <span class="font-normal text-gray-400">| Stuttgart, Germany / Ramallah</span></p>
-                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 ml-4 text-sm">
-                            <li>Transitioned to DevOps Engineer Specialist (2019), managing technical customer requirements and injecting <strong>Jenkins, SonarQube, and Maven</strong> frameworks into development flows.</li>
-                            <li>As Senior IT Consultant, administered Linux and Windows hybrid environments, managing AD, DNS, Exchange, IIS, and providing 2nd level support for European customers.</li>
-                            <li>Utilized <strong>PowerShell and Linux Bash scripting</strong> for environment automation and maintained tools like SCCM, Apache, Nginx, and ESXi servers.</li>
+                        <p class="text-xs text-slate-500 mb-2 font-semibold uppercase">AXSOS AG <span class="font-normal text-gray-400">| Stuttgart, Germany / Ramallah</span></p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm print-text-sm">
+                            <li>Transitioned to DevOps (2019), injecting <strong>Jenkins, SonarQube, and Maven</strong> frameworks into development flows.</li>
+                            <li>Administered Linux/Windows hybrid environments (AD, DNS, Exchange) and provided 2nd level European customer support.</li>
+                            <li>Utilized <strong>PowerShell and Linux Bash scripting</strong> for automation and maintained ESXi servers.</li>
                         </ul>
                     </div>
                     
                     <!-- Job 8 -->
-                    <div class="print-break">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                            <h4 class="text-lg font-bold text-slate-900 tracking-tight">Previous IT & Development Roles</h4>
-                            <span class="text-sm font-medium text-gray-400">2007 – 2014</span>
+                    <div class="avoid-break">
+                        <div class="flex justify-between items-baseline mb-0.5">
+                            <h4 class="text-base font-bold text-slate-900 tracking-tight">Previous IT & Development Roles</h4>
+                            <span class="text-xs font-medium text-gray-400">2007 – 2014</span>
                         </div>
-                        <p class="text-sm text-slate-500 mb-2 font-semibold tracking-wide uppercase">Various Organizations</p>
-                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 ml-4 text-sm">
-                            <li><strong>IT Assistant Manager & Supervisor</strong> at United Motor Trade (Oct 2013 - Nov 2014): Supported 200+ employees with technical issues and Windows Server management.</li>
-                            <li><strong>Junior Web Developer</strong> at Vardot (2011 - 2013): Built and managed websites using PHP, HTML5, and CSS3.</li>
-                            <li><strong>System Administrator & Trainer</strong> at Pioneers Baccalaureate School (Jan 2008 - Dec 2009): Set up school servers and taught computer skills programs.</li>
+                        <p class="text-xs text-slate-500 mb-2 font-semibold uppercase">Various Organizations</p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1 ml-4 text-sm print-text-sm">
+                            <li><strong>IT Assistant Manager</strong> (United Motor Trade): Supported 200+ employees and managed Windows Servers.</li>
+                            <li><strong>Junior Web Developer</strong> (Vardot): Built websites utilizing PHP, HTML5, and CSS3.</li>
+                            <li><strong>System Admin & Trainer</strong> (Pioneers Baccalaureate): Managed school servers and taught computer skills.</li>
                         </ul>
                     </div>
 
@@ -189,112 +218,108 @@
             </div>
 
             <!-- Right Column (Sidebar) -->
-            <div class="w-full md:w-1/3 bg-slate-50 p-8 md:p-12">
+            <div class="w-full md:w-[32%] bg-slate-50 p-6 md:p-8 print:p-6 print:bg-slate-50">
                 
                 <!-- Skills -->
-                <section class="mb-10">
-                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Technical Toolkit</h3>
+                <section class="mb-8 avoid-break">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-1.5 mb-4 uppercase tracking-wider">Technical Toolkit</h3>
                     
-                    <div class="mb-5">
-                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Orchestration & Runtime</h4>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Kubernetes</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Docker</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Helm</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Kustomize</span>
+                    <div class="mb-4">
+                        <h4 class="text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wide">Orchestration</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Kubernetes</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Docker</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Helm</span>
                         </div>
                     </div>
 
-                    <div class="mb-5">
-                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">GitOps & Integration</h4>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">ArgoCD</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Argo Rollouts</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">GitLab CI/CD</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Jenkins</span>
+                    <div class="mb-4">
+                        <h4 class="text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wide">GitOps & CI/CD</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">ArgoCD</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">GitLab CI</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Jenkins</span>
                         </div>
                     </div>
 
-                    <div class="mb-5">
-                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Cloud & Infrastructure</h4>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">AWS</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Microsoft Azure</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">VMware ESXi</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Terraform</span>
+                    <div class="mb-4">
+                        <h4 class="text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wide">Cloud & Infra</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">AWS / Azure</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">VMware ESXi</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Terraform</span>
                         </div>
                     </div>
 
-                    <div class="mb-5">
-                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Observability Stack</h4>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2.5 py-1 bg-slate-900 border border-slate-900 rounded text-xs font-semibold text-white shadow-sm">Prometheus</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Grafana</span>
+                    <div class="mb-4">
+                        <h4 class="text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wide">Observability</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-slate-900 rounded text-[11px] font-semibold text-white">Prometheus</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Grafana</span>
                         </div>
                     </div>
 
-                    <div class="mb-5">
-                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Automation & Security</h4>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Secrets Store CSI Driver</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">AI Tools / LLMs</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">n8n / Webhooks</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Bash / PowerShell</span>
+                    <div class="mb-4">
+                        <h4 class="text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wide">Automation & Sec</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">AI / LLMs</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">n8n</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Secrets CSI</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Bash / PS</span>
                         </div>
                     </div>
                     
-                    <div class="mb-5">
-                        <h4 class="text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">Databases & Cache</h4>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">Redis</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">AWS ElastiCache</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">SQL Server</span>
-                            <span class="px-2.5 py-1 bg-white border border-gray-200 rounded text-xs font-medium text-gray-700 shadow-sm">PostgreSQL</span>
+                    <div class="mb-4">
+                        <h4 class="text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wide">Databases</h4>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">Redis</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">SQL Server</span>
+                            <span class="px-2 py-0.5 bg-white border border-gray-200 rounded text-[11px] font-medium text-gray-700">PostgreSQL</span>
                         </div>
                     </div>
                 </section>
 
                 <!-- Certifications -->
-                <section class="mb-10">
-                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Certifications</h3>
-                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-                        <h4 class="font-bold text-slate-800 text-xs">Certified Kubernetes Administrator (CKA)</h4>
-                        <p class="text-xs text-blue-600 font-medium tracking-wider uppercase mt-1">In Active Preparation</p>
+                <section class="mb-8 avoid-break">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-1.5 mb-4 uppercase tracking-wider">Certifications</h3>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded-r">
+                        <h4 class="font-bold text-slate-800 text-xs">CKA</h4>
+                        <p class="text-[10px] text-blue-600 font-medium uppercase mt-0.5">In Active Prep</p>
                     </div>
-                    <div class="mt-4 pl-4 border-l-2 border-gray-200">
+                    <div class="mt-3 pl-3 border-l-2 border-gray-200">
                         <h4 class="font-semibold text-slate-700 text-xs">CompTIA A+</h4>
                     </div>
-                     <div class="mt-2 pl-4 border-l-2 border-gray-200">
+                     <div class="mt-2 pl-3 border-l-2 border-gray-200">
                         <h4 class="font-semibold text-slate-700 text-xs">ICDL</h4>
                     </div>
                 </section>
 
                 <!-- Education -->
-                <section class="mb-10">
-                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Education</h3>
-                    <div class="mb-4">
-                        <h4 class="font-bold text-slate-800 text-sm">BA, Management Information Systems</h4>
-                        <p class="text-sm text-gray-600">University of Petra, Jordan</p>
-                        <p class="text-xs text-gray-500 mt-0.5">2011 - 2014</p>
+                <section class="mb-8 avoid-break">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-1.5 mb-4 uppercase tracking-wider">Education</h3>
+                    <div class="mb-3">
+                        <h4 class="font-bold text-slate-800 text-sm print-text-sm">BA, MIS</h4>
+                        <p class="text-xs text-gray-600">University of Petra</p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">2011 - 2014</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-800 text-sm">IT Diploma</h4>
-                        <p class="text-sm text-gray-600">Hisham Hijjawi College</p>
-                        <p class="text-xs text-gray-500 mt-0.5">2007 - 2009</p>
+                        <h4 class="font-bold text-slate-800 text-sm print-text-sm">IT Diploma</h4>
+                        <p class="text-xs text-gray-600">Hisham Hijjawi</p>
+                        <p class="text-[11px] text-gray-500 mt-0.5">2007 - 2009</p>
                     </div>
                 </section>
 
                 <!-- Languages -->
-                <section>
-                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-2 mb-6 uppercase tracking-wider">Languages</h3>
+                <section class="avoid-break">
+                    <h3 class="text-xs font-bold text-slate-400 border-b border-gray-200 pb-1.5 mb-4 uppercase tracking-wider">Languages</h3>
                     <ul class="space-y-2">
-                        <li class="flex justify-between items-center text-sm">
+                        <li class="flex justify-between items-center text-sm print-text-sm">
                             <span class="text-gray-700 font-medium">Arabic</span>
-                            <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded font-medium">Native</span>
+                            <span class="text-[10px] bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded font-medium uppercase">Native</span>
                         </li>
-                        <li class="flex justify-between items-center text-sm">
+                        <li class="flex justify-between items-center text-sm print-text-sm">
                             <span class="text-gray-700 font-medium">English</span>
-                            <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded font-medium">Excellent</span>
+                            <span class="text-[10px] bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded font-medium uppercase">Fluent</span>
                         </li>
                     </ul>
                 </section>
