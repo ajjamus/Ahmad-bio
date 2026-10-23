@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "ahmad-bio-f3ad5",
     "public": "public",
     "ignore": [
       "firebase.json",
